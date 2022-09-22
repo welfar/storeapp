@@ -64,7 +64,7 @@ export const Home = () => {
       <br />
 
       <section>
-        <b>¿Quiénes somos?</b>
+        <b>¿About us?</b>
         <br />
 
         <p>

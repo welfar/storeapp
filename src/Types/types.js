@@ -1,4 +1,5 @@
 export const Types = {
   //Products
-  setInfoProducts: "[Products] Set Info Products",
+  setLimitInfoProducts: "[Products] Set Limit Info Products",
+  setListProducts: "[Products] Set List Products",
 };

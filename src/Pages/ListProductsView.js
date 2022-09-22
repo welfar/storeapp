@@ -1,11 +1,11 @@
 import React from "react";
 
-import { ProductList } from "../Components/ListProduct";
+import { ListProduct } from "../Components/ListProduct";
 
 export const ListProductsView = () => {
   return (
     <>
-      <ProductList />
+      <ListProduct />
     </>
   );
 };

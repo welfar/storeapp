@@ -1,11 +1,18 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { GetAllProducts } from "../../Actions/productsInfo";
+import { GetAllProducts } from "../../Actions/productsInfoActions";
+import { AddToCart } from "../../Actions/cartActions";
+import { ProductItem } from "../ProductItem";
+import { ProductDetail } from "../ProductDetail";
+
+import "./style.css";
+import { Link } from "react-router-dom";
 
 export const ListProduct = () => {
   const dispatch = useDispatch();
   const productsInfo = useSelector((state) => state.productsInfo.data);
+  /* const navigate = useNavigate(); */
 
   useEffect(() => {
     dispatch(GetAllProducts());
@@ -13,30 +20,21 @@ export const ListProduct = () => {
 
   return (
     <>
-      <h3>List of Products</h3>
+      <h2 style={{ marginTop: "1rem" }} className="text-center">
+        List of Products
+      </h2>
       {productsInfo &&
         productsInfo.length > 0 &&
-        productsInfo.map((item) => {
+        productsInfo.map((product) => {
           return (
-            <div key={item.id}>
-              <div
-                className="card text-bg-dark border-light"
-                style={{ width: "18rem" }}
-              >
-                <img
-                  src={item.image}
-                  className="card-img-top"
-                  alt={item.category}
+            <div key={product.id}>
+              <Link to={`/details/${product.id}`}>
+                Go to Details
+                <ProductItem
+                  product={product}
+                  addToCart={() => dispatch(AddToCart(product.id))}
                 />
-                <div className="card-body">
-                  <p className="card-text">
-                    <b>Price:</b> $ {item.price}
-                  </p>
-                  <p className="card-text">{item.title}</p>
-                </div>
-              </div>
-
-              <br />
+              </Link>
             </div>
           );
         })}

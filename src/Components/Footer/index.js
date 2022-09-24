@@ -6,43 +6,56 @@ import {
 } from "react-icons/md";
 import { SocialIcon } from "react-social-icons";
 
+import "./style.css";
+
 export const Footer = () => {
   return (
-    <footer>
+    <footer style={{ color: "#fff" }} className="bg-dark">
       <div className="container">
         <div className="row">
           <div className="col-md-6">
-            <h3>
+            <h3 className="footerTitle">
               <b>Store App</b>
             </h3>
 
-            <div className="row">
+            <div className="addresContainer">
               <MdLocationPin style={{ color: "red" }} size={32} />
-              <p>
+              <p style={{ marginLeft: "8px" }}>
                 Carrera 19 N # 50 - 83
                 <br />
                 Armenia, Colombia
               </p>
             </div>
 
-            <div className="i">
+            <div className="telContainer">
               <MdOutlineSmartphone size={32} />
-              <p>Colombia +57 312 2574930 - (6)7475086</p>
+              <p style={{ marginLeft: "8px" }}>+57 312 2574930 - (6)7475086</p>
             </div>
 
-            <div className="i">
+            <div className="emailContainer">
               <MdOutlineEmail size={32} />
+              <a
+                style={{ marginLeft: "8px" }}
+                href="mailto:contacto@storeapp.org"
+              >
+                contacto@storeapp.org
+              </a>
             </div>
-            <a href="mailto:contacto@storeapp.org">contacto@storeapp.org</a>
           </div>
 
           <div className="col-md-6">
-            <h5>
+            <h5 className="footerTitle">
               <b>Social Networks</b>
             </h5>
-            <br />
-            <SocialIcon url="https://instagram.com" />
-            <SocialIcon url="https://facebook.com" />
+
+            <div className="socialBtnContainer">
+              <div style={{ marginRight: "8px" }}>
+                <SocialIcon url="https://instagram.com" />
+              </div>
+              <div>
+                <SocialIcon url="https://facebook.com" />
+              </div>
+            </div>
           </div>
         </div>
       </div>

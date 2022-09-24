@@ -1,0 +1,15 @@
+.headerConfig {
+  display: flex;
+  flex-wrap: unset;
+}
+
+.navbar > .containerConfig {
+  justify-content: center;
+}
+
+.iconBtn {
+  cursor: pointer;
+}
+.iconBtn:hover {
+  transform: scale(1.1);
+}

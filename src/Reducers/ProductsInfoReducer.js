@@ -12,6 +12,12 @@ export const ProductsInfoReducer = (state = [], action) => {
         ...state,
         data: action.payload.ListProducts,
       };
+    case Types.setProduct: {
+      return {
+        ...state,
+        data: action.payload.ProductDetails,
+      };
+    }
     default:
       return state;
   }

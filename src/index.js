@@ -6,6 +6,8 @@ import { App } from "./Routes/App";
 import { store } from "./Store/store";
 import reportWebVitals from "./reportWebVitals";
 
+import "./Styles/GlobalStyles.css";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

@@ -1,0 +1,16 @@
+.bodyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imgBannerContainer {
+  height: 100%;
+  width: 100%;
+}
+
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem;
+}

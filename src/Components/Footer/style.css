@@ -1,0 +1,14 @@
+.footerTitle,
+.addresContainer,
+.telContainer,
+.emailContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0;
+}
+
+.socialBtnContainer {
+  display: flex;
+  justify-content: center;
+}

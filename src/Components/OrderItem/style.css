@@ -1,0 +1,32 @@
+.OrderItem {
+  display: flex;
+}
+
+.infoProductContent {
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  height: 70px;
+}
+
+.amountControlsContent {
+  display: flex;
+  align-items: center;
+}
+
+.substractItem,
+.addItem {
+  cursor: pointer;
+  margin: 0 4px;
+}
+
+.amount {
+  color: #000;
+  margin: 0 4px;
+}
+
+.cancelBtn {
+  background: transparent;
+  outline: none;
+  border: none;
+}

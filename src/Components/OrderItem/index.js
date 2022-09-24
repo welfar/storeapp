@@ -9,19 +9,20 @@ import "./style.css";
 
 export const OrderItem = ({ product }) => {
   const dispatch = useDispatch();
-  /* const handleRemove = (e, product) => {
-    e.preventDefault();
-    removeFromCart(product);
-  }; */
 
-  const handlePlus = (e) => {
+  const handleRemove = (e, item) => {
     e.preventDefault();
-    dispatch(AddToCart({ product }));
+    dispatch(RemoveFromCart(item.id, true));
   };
 
-  const handleMinus = (e) => {
+  const handlePlus = (e, item) => {
     e.preventDefault();
-    dispatch(RemoveFromCart(product.id));
+    dispatch(AddToCart(item));
+  };
+
+  const handleMinus = (e, item) => {
+    e.preventDefault();
+    dispatch(RemoveFromCart(item.id));
   };
 
   const renderItem = () => (
@@ -41,18 +42,21 @@ export const OrderItem = ({ product }) => {
 
       <div className="amountControlsContent">
         <span className="addItem">
-          <AiOutlinePlus color="#000" onClick={(e) => handlePlus(e)} />
+          <AiOutlinePlus color="#000" onClick={(e) => handlePlus(e, product)} />
         </span>
-        <span className="amount">0</span>
+        <span className="amount">{product.quantity}</span>
         <span className="substractItem">
-          <AiOutlineMinus color="#000" onClick={(e) => handleMinus(e)} />
+          <AiOutlineMinus
+            color="#000"
+            onClick={(e) => handleMinus(e, product)}
+          />
         </span>
       </div>
 
       <button
         type="button"
         className="btn btn-dark cancelBtn"
-        /* onClick={(e) => handleRemove(e, product)} */
+        onClick={(e) => handleRemove(e, product)}
       >
         <FaTimes color="#D32F2F" />
       </button>

@@ -5,8 +5,6 @@ import { FiShoppingCart } from "react-icons/fi";
 import { Logo } from "../Logo";
 import { SideCart } from "../SideCart";
 
-import "./style.css";
-
 export const Header = () => {
   const [toggleOrders, setToggleOrders] = useState(false);
 

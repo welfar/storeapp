@@ -5,8 +5,6 @@ import { FaTimes } from "react-icons/fa";
 
 import { AddToCart, RemoveFromCart } from "../../Actions/cartActions";
 
-import "./style.css";
-
 export const OrderItem = ({ product }) => {
   const dispatch = useDispatch();
 

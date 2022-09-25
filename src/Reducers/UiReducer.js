@@ -1,11 +1,13 @@
 import { Types } from "../Types/types";
 
-const initalState = {
+const initialState = {
   isLoading: false,
-  MessageError: null,
+  active: false,
+  message: "",
+  Type: "",
 };
 
-export const UiReducer = (state = initalState, action) => {
+export const UiReducer = (state = initialState, action) => {
   switch (action.type) {
     case Types.setLoading:
       return {
@@ -16,16 +18,6 @@ export const UiReducer = (state = initalState, action) => {
       return {
         ...state,
         isLoading: false,
-      };
-    case Types.setMessageError:
-      return {
-        ...state,
-        MessageError: action.payload.MessageError,
-      };
-    case Types.unSetMessageError:
-      return {
-        ...state,
-        MessageError: null,
       };
     default:
       return state;

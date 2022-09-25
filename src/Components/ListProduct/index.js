@@ -3,11 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { GetAllProducts } from "../../Actions/productsInfoActions";
-import { AddToCart } from "../../Actions/cartActions";
 import { ProductItem } from "../ProductItem";
 import { Loader } from "../Loader";
-
-import "./style.css";
 
 export const ListProduct = () => {
   const dispatch = useDispatch();
@@ -31,10 +28,7 @@ export const ListProduct = () => {
             <div key={product.id}>
               <Link to={`/details/${product.id}`}>
                 Go to Details
-                <ProductItem
-                  product={product}
-                  addToCart={() => dispatch(AddToCart(product.id))}
-                />
+                <ProductItem product={product} />
               </Link>
             </div>
           );

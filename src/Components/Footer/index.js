@@ -6,8 +6,6 @@ import {
 } from "react-icons/md";
 import { SocialIcon } from "react-social-icons";
 
-import "./style.css";
-
 export const Footer = () => {
   return (
     <footer style={{ color: "#fff" }} className="bg-dark">

@@ -1,28 +1,13 @@
 import { Types } from "../Types/types";
 
-export const startLoading = () => {
+export const StartLoading = () => {
   return {
     type: Types.setLoading,
   };
 };
 
-export const finishLoading = () => {
+export const FinishLoading = () => {
   return {
     type: Types.unSetLoading,
-  };
-};
-
-export const setError = (error) => {
-  return {
-    type: Types.setMessageError,
-    payload: {
-      MessageError: error,
-    },
-  };
-};
-
-export const UnSetError = () => {
-  return {
-    type: Types.unSetMessageError,
   };
 };

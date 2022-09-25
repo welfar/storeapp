@@ -1,11 +1,12 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
-import { startLoading, finishLoading } from "./uiActions";
+import { StartLoading, FinishLoading } from "./uiActions";
 import { Types } from "../Types/types";
 
 export const GetProductsLimited = () => {
   return (dispatch) => {
-    dispatch(startLoading());
+    dispatch(StartLoading());
 
     axios
       .get("https://fakestoreapi.com/products?limit=4")
@@ -16,17 +17,23 @@ export const GetProductsLimited = () => {
             ProductsInfo: res.data,
           },
         });
-        dispatch(finishLoading());
+        dispatch(FinishLoading());
       })
       .catch((err) => {
         console.log("Error", err);
+        Swal.fire({
+          title: "Error",
+          icon: "error",
+          text: err,
+          button: "OK",
+        });
       });
   };
 };
 
 export const GetAllProducts = () => {
   return (dispatch) => {
-    dispatch(startLoading());
+    dispatch(StartLoading());
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
@@ -36,10 +43,16 @@ export const GetAllProducts = () => {
             ListProducts: res.data,
           },
         });
-        dispatch(finishLoading());
+        dispatch(FinishLoading());
       })
       .catch((err) => {
         console.log("Error", err);
+        Swal.fire({
+          title: "Error",
+          icon: "error",
+          text: err,
+          button: "OK",
+        });
       });
   };
 };

@@ -13,6 +13,4 @@ export const Types = {
   //UI
   setLoading: "[UI] Set Loading",
   unSetLoading: "[UI] Unset Loading",
-  setMessageError: "[UI] Set Message Error",
-  unSetMessageError: "[UI] Unset Message Error",
 };

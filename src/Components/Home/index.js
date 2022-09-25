@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetProductsLimited } from "../../Actions/productsInfoActions";
 import { Loader } from "../Loader";
 
-import "./style.css";
-
 export const Home = () => {
   const dispatch = useDispatch();
   const productsInfo = useSelector((state) => state.productsInfo.data);

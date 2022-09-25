@@ -1,13 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
 import { OrderItem } from "../OrderItem";
-
-import "./style.css";
+import { ClearCart } from "../../Actions/cartActions";
 
 export const SideCart = ({ setToggleOrders }) => {
+  const dispatch = useDispatch();
   const productInfo = useSelector((state) => state.CartInfo.cart);
-  const totalProduct = useSelector((state) => state.CartInfo.total);
 
   const handleClose = (e) => {
     e.preventDefault();
@@ -20,10 +20,16 @@ export const SideCart = ({ setToggleOrders }) => {
       0
     )
     .toFixed(2);
-  console.log("total", totalProduct);
 
-  const handlePay = (e) => {
+  const handlePay = (e, item) => {
     e.preventDefault();
+    dispatch(ClearCart(item));
+    Swal.fire({
+      title: "Success",
+      icon: "success",
+      text: "The purchase has been made successfully",
+      button: "OK",
+    });
   };
 
   return (
@@ -49,21 +55,16 @@ export const SideCart = ({ setToggleOrders }) => {
           </div>
 
           <div className="totalOrderContainer">
-            <div className="totalProductContent">
-              <b>Total Products</b>
-              <p>{totalProduct}</p>
-            </div>
-            <div className="totalProductContent">
-              <b>Total Price</b>
-              <p>$ {sumTotal}</p>
-            </div>
+            <b>Total Price</b>
+            <p>$ {sumTotal}</p>
           </div>
 
           <div className="buyBtnContainer">
             <button
               type="button"
               className="btn btn-dark"
-              onClick={(e) => handlePay(e)}
+              onClick={(e) => handlePay(e, productInfo)}
+              disabled={productInfo.length === 0}
             >
               Checkout
             </button>

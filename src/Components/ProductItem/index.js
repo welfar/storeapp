@@ -12,18 +12,19 @@ export const ProductItem = ({ product }) => {
         >
           <figure>
             <img
-              src={product ? product.image : null}
+              src={product.image}
               className="card-img-top"
-              alt={product ? product.title : null}
-              title={product ? product.title : null}
+              alt={product.title}
+              title={product.title}
             />
           </figure>
           <div className="card-body">
             <p className="card-text">
-              <b>Title:</b> {product ? product.title : null}
+              <b>Title:</b> {product.title}
             </p>
+            <br />
             <p className="card-text">
-              <b>Price:</b> $ {product ? product.price : null}
+              <b>Price:</b> $ {product.price}
             </p>
           </div>
         </div>

@@ -7,10 +7,12 @@ import thunk from "redux-thunk";
 
 import { ProductsInfoReducer } from "../Reducers/ProductsInfoReducer";
 import { CartReducer } from "../Reducers/CartReducer";
+import { UiReducer } from "../Reducers/UiReducer";
 
 const rootReducer = combineReducers({
   productsInfo: ProductsInfoReducer,
   CartInfo: CartReducer,
+  Ui: UiReducer,
 });
 
 const middlewares = applyMiddleware(thunk);

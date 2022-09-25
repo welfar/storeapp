@@ -2,12 +2,14 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { GetProductsLimited } from "../../Actions/productsInfoActions";
+import { Loader } from "../Loader";
 
 import "./style.css";
 
 export const Home = () => {
   const dispatch = useDispatch();
   const productsInfo = useSelector((state) => state.productsInfo.data);
+  const isLoading = useSelector((state) => state.Ui.isLoading);
 
   useEffect(() => {
     dispatch(GetProductsLimited());
@@ -28,23 +30,21 @@ export const Home = () => {
                   <img
                     src={item.image}
                     className="card-img-top"
-                    alt={item.category}
+                    alt={item.title}
                     title={item.title}
                   />
                 </figure>
                 <div className="card-body">
                   <p className="card-text">
+                    <b>Category:</b> {item.category}
+                  </p>
+                  <br />
+                  <p className="card-text">
+                    <b>Title:</b> {item.title}
+                  </p>
+                  <br />
+                  <p className="card-text">
                     <b>Price:</b> $ {item.price}
-                  </p>
-                  <p className="card-text">
-                    <b>Description:</b> {item.description}
-                  </p>
-                  <p className="card-text">
-                    <b>Rating:</b>
-                    <br />
-                    Rate: {item.rating.rate}
-                    <br />
-                    Count: {item.rating.count}
                   </p>
                 </div>
               </div>
@@ -69,7 +69,7 @@ export const Home = () => {
       </section>
       <br />
 
-      <section>{renderLimitList()}</section>
+      {!isLoading ? <section>{renderLimitList()}</section> : <Loader />}
       <br />
 
       <section className="aboutContainer">

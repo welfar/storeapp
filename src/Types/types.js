@@ -9,4 +9,10 @@ export const Types = {
   removeOneFromCart: "[Cart] Remove One From Cart",
   removeAllFromCart: "[Cart] Remove All From Cart",
   clearCart: "[Cart] Clear Cart",
+
+  //UI
+  setLoading: "[UI] Set Loading",
+  unSetLoading: "[UI] Unset Loading",
+  setMessageError: "[UI] Set Message Error",
+  unSetMessageError: "[UI] Unset Message Error",
 };

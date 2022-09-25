@@ -1,9 +1,12 @@
 import axios from "axios";
 
+import { startLoading, finishLoading } from "./uiActions";
 import { Types } from "../Types/types";
 
 export const GetProductsLimited = () => {
   return (dispatch) => {
+    dispatch(startLoading());
+
     axios
       .get("https://fakestoreapi.com/products?limit=4")
       .then((res) => {
@@ -13,6 +16,7 @@ export const GetProductsLimited = () => {
             ProductsInfo: res.data,
           },
         });
+        dispatch(finishLoading());
       })
       .catch((err) => {
         console.log("Error", err);
@@ -22,6 +26,7 @@ export const GetProductsLimited = () => {
 
 export const GetAllProducts = () => {
   return (dispatch) => {
+    dispatch(startLoading());
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
@@ -31,6 +36,7 @@ export const GetAllProducts = () => {
             ListProducts: res.data,
           },
         });
+        dispatch(finishLoading());
       })
       .catch((err) => {
         console.log("Error", err);

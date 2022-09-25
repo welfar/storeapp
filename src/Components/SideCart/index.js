@@ -7,20 +7,20 @@ import "./style.css";
 
 export const SideCart = ({ setToggleOrders }) => {
   const productInfo = useSelector((state) => state.CartInfo.cart);
-  //console.log("carinfo", productInfo);
+  const totalProduct = useSelector((state) => state.CartInfo.total);
 
   const handleClose = (e) => {
     e.preventDefault();
     setToggleOrders(false);
   };
 
-  const sumTotal = () => {
-    const reducer = (accumulator, currentValue) =>
-      accumulator + currentValue.price;
-
-    const sum = productInfo.reduce(reducer, 0);
-    return sum;
-  };
+  const sumTotal = productInfo
+    .reduce(
+      (accumulator, currentValue) => accumulator + currentValue.totalPrice,
+      0
+    )
+    .toFixed(2);
+  console.log("total", totalProduct);
 
   const handlePay = (e) => {
     e.preventDefault();
@@ -48,11 +48,15 @@ export const SideCart = ({ setToggleOrders }) => {
               ))}
           </div>
 
-          <div className="totalOrder">
-            <p>
+          <div className="totalOrderContainer">
+            <div className="totalProductContent">
+              <b>Total Products</b>
+              <p>{totalProduct}</p>
+            </div>
+            <div className="totalProductContent">
               <b>Total Price</b>
-            </p>
-            <p>$ {sumTotal()}</p>
+              <p>$ {sumTotal}</p>
+            </div>
           </div>
 
           <div className="buyBtnContainer">

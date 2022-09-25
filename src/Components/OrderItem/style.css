@@ -2,11 +2,23 @@
   display: flex;
 }
 
-.infoProductContent {
+.productInfoContent {
+  width: 200px;
   display: flex;
   flex-direction: column;
+  margin-left: 4px;
   color: #000;
-  height: 70px;
+}
+
+.controlsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.infoPriceContent {
+  display: flex;
+  justify-content: center;
 }
 
 .amountControlsContent {

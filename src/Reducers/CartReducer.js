@@ -2,6 +2,7 @@ import { Types } from "../Types/types";
 
 const initialState = {
   cart: [],
+  total: 0,
 };
 
 export const CartReducer = (state = initialState, action) => {
@@ -16,13 +17,26 @@ export const CartReducer = (state = initialState, action) => {
             ...state,
             cart: state.cart.map((item) =>
               item.id === newItem.id
-                ? { ...item, quantity: item.quantity + 1 }
+                ? {
+                    ...item,
+                    quantity: item.quantity + 1,
+                    totalPrice: (item.totalPrice += newItem.price),
+                  }
                 : item
             ),
+            total: (state.total += 1),
           }
         : {
             ...state,
-            cart: [...state.cart, { ...newItem, quantity: 1 }],
+            cart: [
+              ...state.cart,
+              {
+                ...newItem,
+                quantity: 1,
+                totalPrice: newItem.price,
+              },
+            ],
+            total: (state.total += 1),
           };
     }
     case Types.removeOneFromCart: {
@@ -33,19 +47,26 @@ export const CartReducer = (state = initialState, action) => {
             ...state,
             cart: state.cart.map((item) =>
               item.id === action.payload
-                ? { ...item, quantity: item.quantity - 1 }
+                ? {
+                    ...item,
+                    quantity: item.quantity - 1,
+                    totalPrice: (item.totalPrice -= item.price),
+                  }
                 : item
             ),
+            total: (state.total -= 1),
           }
         : {
             ...state,
             cart: state.cart.filter((item) => item.id !== action.payload),
+            total: (state.total -= 1),
           };
     }
     case Types.removeAllFromCart: {
       return {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload),
+        total: (state.total = 0),
       };
     }
     case Types.clearCart: {

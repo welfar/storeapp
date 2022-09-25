@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { GetAllProducts } from "../../Actions/productsInfoActions";
 import { AddToCart } from "../../Actions/cartActions";
 import { ProductItem } from "../ProductItem";
-import { ProductDetail } from "../ProductDetail";
+import { Loader } from "../Loader";
 
 import "./style.css";
-import { Link } from "react-router-dom";
 
 export const ListProduct = () => {
   const dispatch = useDispatch();
   const productsInfo = useSelector((state) => state.productsInfo.data);
-  /* const navigate = useNavigate(); */
+  const isLoading = useSelector((state) => state.Ui.isLoading);
 
   useEffect(() => {
     dispatch(GetAllProducts());
@@ -23,7 +23,8 @@ export const ListProduct = () => {
       <h2 style={{ marginTop: "1rem" }} className="text-center">
         List of Products
       </h2>
-      {productsInfo &&
+      {!isLoading ? (
+        productsInfo &&
         productsInfo.length > 0 &&
         productsInfo.map((product) => {
           return (
@@ -37,7 +38,10 @@ export const ListProduct = () => {
               </Link>
             </div>
           );
-        })}
+        })
+      ) : (
+        <Loader />
+      )}
     </>
   );
 };

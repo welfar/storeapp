@@ -31,35 +31,43 @@ export const OrderItem = ({ product }) => {
         <img src={product.image} alt={product.title} />
       </figure>
 
-      <div className="infoProductContent">
+      <div className="productInfoContent">
         <p title={product.title}>
-          {product.title.length > 10
-            ? product.title.substring(0, 20) + "..."
+          {product.title.length > 20
+            ? product.title.substring(0, 23) + "..."
             : product.title}
         </p>
-        <p> $ {product.price} </p>
-      </div>
 
-      <div className="amountControlsContent">
-        <span className="addItem">
-          <AiOutlinePlus color="#000" onClick={(e) => handlePlus(e, product)} />
-        </span>
-        <span className="amount">{product.quantity}</span>
-        <span className="substractItem">
-          <AiOutlineMinus
-            color="#000"
-            onClick={(e) => handleMinus(e, product)}
-          />
-        </span>
-      </div>
+        <div className="controlsContainer">
+          <div className="infoPriceContent">
+            <p> $ {product.price} </p>
+          </div>
 
-      <button
-        type="button"
-        className="btn btn-dark cancelBtn"
-        onClick={(e) => handleRemove(e, product)}
-      >
-        <FaTimes color="#D32F2F" />
-      </button>
+          <div className="amountControlsContent">
+            <span className="addItem">
+              <AiOutlinePlus
+                color="#000"
+                onClick={(e) => handlePlus(e, product)}
+              />
+            </span>
+            <span className="amount">{product.quantity}</span>
+            <span className="substractItem">
+              <AiOutlineMinus
+                color="#000"
+                onClick={(e) => handleMinus(e, product)}
+              />
+            </span>
+          </div>
+
+          <button
+            type="button"
+            className="btn btn-dark cancelBtn"
+            onClick={(e) => handleRemove(e, product)}
+          >
+            <FaTimes color="#D32F2F" />
+          </button>
+        </div>
+      </div>
     </div>
   );
 

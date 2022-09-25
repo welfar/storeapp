@@ -4,7 +4,9 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 import { AddToCart } from "../../Actions/cartActions";
+import { finishLoading, startLoading } from "../../Actions/uiActions";
 import { Types } from "../../Types/types";
+import { Loader } from "../Loader";
 
 import "./style.css";
 
@@ -12,8 +14,10 @@ export const ProductDetail = () => {
   const dispatch = useDispatch();
   const { productId } = useParams();
   const productDetail = useSelector((state) => state.productsInfo.data);
+  const isLoading = useSelector((state) => state.Ui.isLoading);
 
   useEffect(() => {
+    dispatch(startLoading());
     axios
       .get(`https://fakestoreapi.com/products/${productId}`)
       .then((res) => {
@@ -23,6 +27,7 @@ export const ProductDetail = () => {
             ProductDetails: res.data,
           },
         });
+        dispatch(finishLoading());
       })
       .catch((err) => {
         console.log("Error", err);
@@ -38,22 +43,23 @@ export const ProductDetail = () => {
         >
           <figure>
             <img
-              src={productDetail ? productDetail.image : null}
+              src={productDetail.image}
               className="card-img-top"
-              alt={productDetail ? productDetail.category : null}
-              title={productDetail ? productDetail.title : null}
+              alt={productDetail.category}
+              title={productDetail.title}
             />
           </figure>
           <div className="card-body">
             <p className="card-text">
-              <b>Title:</b> {productDetail ? productDetail.title : null}
+              <b>Title:</b> {productDetail.title}
             </p>
+            <br />
             <p className="card-text">
-              <b>Price:</b> $ {productDetail ? productDetail.price : null}
+              <b>Price:</b> $ {productDetail.price}
             </p>
+            <br />
             <p className="card-text">
-              <b>Description:</b>{" "}
-              {productDetail ? productDetail.description : null}
+              <b>Description:</b> {productDetail.description}
             </p>
           </div>
         </div>
@@ -72,17 +78,22 @@ export const ProductDetail = () => {
         product Detail
       </h3>
 
-      {renderProduct()}
-
-      <div className="addBtnContainer">
-        <button
-          type="button"
-          className="btn btn-dark"
-          onClick={(e) => handleClick(e, productDetail)}
-        >
-          Add to cart
-        </button>
-      </div>
+      {!isLoading ? (
+        <>
+          {renderProduct()}
+          <div className="addBtnContainer">
+            <button
+              type="button"
+              className="btn btn-dark"
+              onClick={(e) => handleClick(e, productDetail)}
+            >
+              Add to cart
+            </button>
+          </div>
+        </>
+      ) : (
+        <Loader />
+      )}
     </>
   );
 };

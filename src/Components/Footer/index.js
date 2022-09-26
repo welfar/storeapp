@@ -17,41 +17,44 @@ export const Footer = () => {
             </h3>
 
             <div className="addresContainer">
-              <MdLocationPin style={{ color: "red" }} size={32} />
+              <MdLocationPin style={{ color: "red" }} className="iconFooter" />
               <p style={{ marginLeft: "8px" }}>
-                Carrera 19 N # 50 - 83
+                Cra 19 N # 50 - 83
                 <br />
                 Armenia, Colombia
               </p>
             </div>
 
             <div className="telContainer">
-              <MdOutlineSmartphone size={32} />
-              <p style={{ marginLeft: "8px" }}>+57 312 2574930 - (6)7475086</p>
+              <MdOutlineSmartphone className="iconFooter" />
+              <p style={{ marginLeft: "8px" }}>+57 312 2574930 </p>
             </div>
 
             <div className="emailContainer">
-              <MdOutlineEmail size={32} />
+              <MdOutlineEmail className="iconFooter" />
               <a
                 style={{ marginLeft: "8px" }}
                 href="mailto:contacto@storeapp.org"
               >
-                contacto@storeapp.org
+                storeapp@mail.org
               </a>
             </div>
           </div>
 
-          <div className="col-md-6">
+          <div className="col-md-6 rigthContent">
             <h5 className="footerTitle">
               <b>Social Networks</b>
             </h5>
 
             <div className="socialBtnContainer">
               <div style={{ marginRight: "8px" }}>
-                <SocialIcon url="https://instagram.com" />
+                <SocialIcon
+                  className="iconConfig"
+                  url="https://instagram.com"
+                />
               </div>
               <div>
-                <SocialIcon url="https://facebook.com" />
+                <SocialIcon className="iconConfig" url="https://facebook.com" />
               </div>
             </div>
           </div>

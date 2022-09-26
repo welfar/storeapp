@@ -9,8 +9,80 @@
   width: 100%;
 }
 
-.aboutContainer {
+.cardConfig {
+  border: 1px solid rgba(33, 37, 41, 1);
+  border-radius: 15px;
+}
+
+.cardImgTop {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+}
+
+.textContent {
+  width: 250px;
+  height: 180px;
   display: flex;
   flex-direction: column;
-  margin: 0 1rem;
+  justify-content: space-between;
+  background-color: rgba(33, 37, 41, 1);
+  color: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.aboutContainer {
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 1.5rem;
+}
+
+.textAlign {
+  text-align: justify;
+}
+
+@media only screen and (min-width: 768px) {
+  .imgBannerContainer {
+    height: 280px;
+  }
+  .homeProducts {
+    margin: 0 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .cardConfig {
+    margin: 0 1rem;
+    font-size: 18px;
+  }
+  .cardImgTop {
+    width: 200px;
+    height: 200px;
+  }
+  .textContent {
+    width: 200px;
+    overflow-y: scroll;
+  }
+  .aboutContainer {
+    margin: 0 4rem;
+    font-size: 18px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .imgBannerContainer {
+    height: 300px;
+  }
+  .homeProducts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .textContent {
+    height: 290px;
+    overflow-y: hidden;
+  }
 }

@@ -20,28 +20,25 @@ export const Home = () => {
         productsInfo.map((item) => {
           return (
             <div key={item.id}>
-              <div
-                className="card text-bg-dark border-light"
-                style={{ width: "18rem" }}
-              >
+              <div className="cardConfig">
                 <figure>
                   <img
                     src={item.image}
-                    className="card-img-top"
+                    className="cardImgTop"
                     alt={item.title}
                     title={item.title}
                   />
                 </figure>
-                <div className="card-body">
-                  <p className="card-text">
+                <div className="textContent">
+                  <p>
                     <b>Category:</b> {item.category}
                   </p>
                   <br />
-                  <p className="card-text">
+                  <p>
                     <b>Title:</b> {item.title}
                   </p>
                   <br />
-                  <p className="card-text">
+                  <p>
                     <b>Price:</b> $ {item.price}
                   </p>
                 </div>
@@ -61,18 +58,21 @@ export const Home = () => {
         <img
           src="https://static.vecteezy.com/system/resources/previews/002/453/533/non_2x/big-sale-discount-banner-template-promotion-illustration-free-vector.jpg"
           alt="Descuentos"
-          height={300}
           className="imgBannerContainer"
         />
       </section>
       <br />
 
-      {!isLoading ? <section>{renderLimitList()}</section> : <Loader />}
+      {!isLoading ? (
+        <section className="homeProducts">{renderLimitList()}</section>
+      ) : (
+        <Loader />
+      )}
       <br />
 
       <section className="aboutContainer">
         <b>¿About us?</b>
-        <p className="text-justify">
+        <p className="textAlign">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit
           labore voluptatibus atque repellat doloribus ducimus corporis. Maxime
           rem officia, repellat accusantium quae, provident, facere tenetur cum

@@ -17,25 +17,25 @@ export const ListProduct = () => {
 
   return (
     <>
-      <h2 style={{ marginTop: "1rem" }} className="text-center">
-        List of Products
-      </h2>
-      {!isLoading ? (
-        productsInfo &&
-        productsInfo.length > 0 &&
-        productsInfo.map((product) => {
-          return (
-            <div key={product.id}>
-              <Link to={`/details/${product.id}`}>
-                Go to Details
-                <ProductItem product={product} />
-              </Link>
-            </div>
-          );
-        })
-      ) : (
-        <Loader />
-      )}
+      <p className="text-center titleConfig">List of Products</p>
+      <div className="listProductBody">
+        {!isLoading ? (
+          productsInfo &&
+          productsInfo.length > 0 &&
+          productsInfo.map((product) => {
+            return (
+              <div className="linkConfig" key={product.id}>
+                <Link to={`/details/${product.id}`}>
+                  Go to Details
+                  <ProductItem product={product} />
+                </Link>
+              </div>
+            );
+          })
+        ) : (
+          <Loader />
+        )}
+      </div>
     </>
   );
 };

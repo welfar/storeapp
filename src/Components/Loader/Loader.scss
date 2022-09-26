@@ -22,3 +22,14 @@
     transform: rotate(360deg);
   }
 }
+@media only screen and (min-width: 768px) {
+  .spinner {
+    border: 12px solid rgba(0, 0, 0, 0.1);
+    width: 160px;
+    height: 160px;
+    border-left-color: #09f;
+  }
+  .spinner--txt {
+    font-size: 25px;
+  }
+}

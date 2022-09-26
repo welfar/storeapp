@@ -12,16 +12,16 @@ export const Header = () => {
     <header>
       <nav className="navbar navbar-dark bg-dark headerConfig">
         <Logo />
+
         <div className="container-fluid containerConfig">
-          <Link className="navbar-brand" to="/">
+          <Link className="navbar-brand sizeConfig" to="/">
             Home
           </Link>
-          <Link className="navbar-brand" to="/list-of-products">
+          <Link className="navbar-brand sizeConfig" to="/list-of-products">
             Productos
           </Link>
 
           <FiShoppingCart
-            size={20}
             className="iconBtn"
             onClick={() => setToggleOrders(!toggleOrders)}
           />

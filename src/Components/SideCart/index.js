@@ -59,10 +59,10 @@ export const SideCart = ({ setToggleOrders }) => {
             <p>$ {sumTotal}</p>
           </div>
 
-          <div className="buyBtnContainer">
+          <div className="btnContainer">
             <button
               type="button"
-              className="btn btn-dark"
+              className="btn btn-dark btnConfig"
               onClick={(e) => handlePay(e, productInfo)}
               disabled={productInfo.length === 0}
             >

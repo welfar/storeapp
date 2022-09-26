@@ -42,3 +42,13 @@
   outline: none;
   border: none;
 }
+
+@media only screen and (min-width: 768px) {
+  .productInfoContent {
+    width: 280px;
+    margin-left: 12px;
+  }
+  .cancelBtn {
+    font-size: 20px;
+  }
+}

@@ -8,8 +8,30 @@
 }
 
 .iconBtn {
+  font-size: 20px;
   cursor: pointer;
   &:hover {
     transform: scale(1.1);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .headerConfig {
+    height: 80px;
+  }
+  .sizeConfig {
+    font-size: 28px;
+  }
+  .iconBtn {
+    font-size: 30px;
+  }
+  .navbar > .containerConfig {
+    justify-content: space-evenly;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .iconBtn {
+    font-size: 35px;
   }
 }

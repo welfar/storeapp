@@ -8,7 +8,38 @@
   margin: 12px 0;
 }
 
+.iconFooter {
+  font-size: 24px;
+}
+
 .socialBtnContainer {
   display: flex;
   justify-content: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .footerTitle {
+    font-size: 24px;
+    text-align: center;
+  }
+  .addresContainer,
+  .telContainer,
+  .emailContainer {
+    font-size: 20px;
+    text-align: center;
+  }
+  .iconFooter {
+    font-size: 26px;
+  }
+  .rigthContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .iconConfig {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+@media only screen and (min-width: 992px) {
 }

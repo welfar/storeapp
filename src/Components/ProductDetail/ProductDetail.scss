@@ -1,6 +1,22 @@
-.productContainer,
-.addBtnContainer {
+.textContent-productDetail {
+  overflow-y: scroll;
+}
+
+.btnContainer {
   display: flex;
   justify-content: center;
   margin: 1rem 0;
+}
+@media only screen and (min-width: 768px) {
+  .cardconfig-productDetail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 700px;
+  }
+  .textContent-productDetail {
+    width: 100%;
+    height: fit-content;
+    overflow-y: hidden;
+  }
 }

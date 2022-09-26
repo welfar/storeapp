@@ -27,7 +27,7 @@ body {
   height: 100vh;
   margin: 0 auto;
   overscroll-behavior: none;
-  max-width: 320px;
+  min-width: 320px;
   width: 100%;
 }
 
@@ -38,4 +38,37 @@ header {
 a {
   text-decoration: none;
   color: #fff;
+}
+
+figure {
+  margin: 0;
+}
+
+/* Scroll Bar compatibilidad con: */
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(33, 37, 41, 1) #eaedf7;
+}
+
+/* Opera Chrome Edge */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 135, 135, 0.548);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: grey;
 }

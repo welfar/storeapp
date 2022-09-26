@@ -32,11 +32,15 @@
   flex-direction: column;
 }
 
-.shoppingCart figure img {
-  width: 70px;
-  height: 70px;
-  border-radius: 20px;
-  object-fit: cover;
+.shoppingCart {
+  figure {
+    img {
+      width: 70px;
+      height: 70px;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+  }
 }
 
 .shoppingCart p:nth-child(3) {
@@ -52,8 +56,10 @@
   align-items: center;
 }
 
-.shoppingCart figure {
-  margin: 0;
+.shoppingCart {
+  figure {
+    margin: 0;
+  }
 }
 
 .totalOrderContainer {
@@ -65,8 +71,14 @@
   border-radius: 12px;
 }
 
-.buyBtnContainer {
-  display: flex;
-  justify-content: center;
-  margin: 1rem 0;
+@media only screen and (min-width: 768px) {
+  .myOrder {
+    width: 450px;
+    top: 80px;
+  }
+  .totalOrderContainer,
+  .myOrderHeader,
+  .shoppingCart {
+    font-size: 18px;
+  }
 }

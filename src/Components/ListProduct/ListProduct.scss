@@ -1,5 +1,31 @@
-.cardContainer {
+.titleConfig {
+  margin-top: 1rem;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.listProductBody {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin: 1rem 0;
+  margin-top: 8px;
+  a {
+    color: #000;
+  }
+}
+
+.linkConfig {
+  font-size: 18px;
+  margin: 0 1rem;
+}
+
+.textContent-productItem {
+  height: 130px;
+  overflow-y: scroll;
+}
+
+@media only screen and (min-width: 768px) {
+  .textContent-productItem {
+    height: 150px;
+  }
 }

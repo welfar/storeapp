@@ -1,5 +1,21 @@
 .Svg {
-  width: 220px;
+  width: auto;
   margin-left: 8px;
   margin-top: -16px;
+}
+
+@media only screen and (min-width: 768px) {
+  .Svg {
+    width: 275px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .Svg {
+    width: 300px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .Svg {
+    width: 350px;
+  }
 }
